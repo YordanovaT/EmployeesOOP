@@ -16,9 +16,8 @@
 
         
             Employee();
-            ~Employee();
             Employee(int id,  std::string f_name, std::string l_name, int age, float month_sal, std::string company_name,  std::string department);
-            virtual void calculate_year_income(Employee em);
+            virtual void calculate_year_income();
             //virtual void show_richest(Employee em);
             void output();
 
