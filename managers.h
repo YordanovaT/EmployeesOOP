@@ -12,6 +12,6 @@ class Manager:public Employee{
     
         Manager();
         Manager(int people_managed, int id, std::string f_name, std::string l_name, int age, float month_sal,  std::string company_name, std::string department);
-        
+        void output();
 };
 #endif
