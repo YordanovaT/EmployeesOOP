@@ -34,7 +34,7 @@ void Employee::calculate_year_income()
 
 void Employee::output()
 {
-    std::cout<<"Company Name: " << company_name<<"\tDepartment: "<<comp_department<<std::endl;
+    std::cout<<"Employee ID: "<<ID<<"\tCompany Name: " << company_name<<"\tDepartment: "<<comp_department<<std::endl;
     std::cout<<"Name: "<< first_name<< " "<<last_name << "\tAge: "<<Age<< "\nMonth salary: "<<month_salary<<std::endl;
 }
 
@@ -45,10 +45,10 @@ void Employee::show_richest()
     
     if(rich>=max)
     {
-        std::cout<<"----------------------- Employees with income above 30K ----------------------- \n";
+        std::cout<<"--------------------------------------- Employees with income above 30K --------------------------------------- \n";
         std::cout<<"Employee ID: "<<ID<<"\tCompany Name: " << company_name<<std::endl;
         std::cout<<"Name: "<< first_name<< " "<<last_name <<"\tDepartment: "<<comp_department<<"\tYear income: "<< rich<<std::endl;
-        std::cout<<"----------------------------------------------------------------------------- \n\n";
+         std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
 
     }
 
