@@ -13,7 +13,30 @@ Employee(id, f_name, l_name, age, month_sal, company_name, department)
 
 void Manager::output()
 {
-    std::cout<<"Company Name: " << company_name<<"\tManager of: "<<comp_department<<std::endl;
-    std::cout<<"Name: "<< first_name<< " "<<last_name << "\tAge: "<<Age<< "\nMonth salary: "<<month_salary<<std::endl;
+    std::cout<<"Employee ID: "<<ID<<"\tCompany Name: " << company_name<<"\tManager of: "<<comp_department<<"\t People managed: "<<managing<<std::endl;
+    std::cout<<"Name: "<< first_name<< " "<<last_name << "\tAge: "<<Age<< "\tMonth salary: "<<month_salary<<std::endl;
 }
 
+void Manager::calculate_year_income()
+{
+    float income=GetIncome();
+    std::cout<<"Employee ID: "<<ID<<"\tYear income: "<<income<<"\tManager of: "<<comp_department<<std::endl;
+}
+
+void Manager::show_richest()
+{
+    float max=38000; //because managers have higher month salary
+    float rich = GetIncome();
+    
+    if(rich>=max)
+    {
+        std::cout<<"--------------------------------------- Managers with income above 38K --------------------------------------- \n";
+        std::cout<<"Employee ID: "<<ID<<"\tCompany Name: " << company_name<<std::endl;
+        std::cout<<"Name: "<< first_name<< " "<<last_name <<"\tManager of: "<<comp_department<<"\tYear income: "<<rich<<std::endl;
+        std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+    }
+    else
+    {
+        return;
+    }
+}
