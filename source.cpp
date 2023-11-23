@@ -11,20 +11,21 @@ int main()
 
     //create  company employees
     Employee *employees[workers_count]; 
-    employees[0]= new Employee(3345, "Tim",  "Smith", 35, 2500, "The Last Of Us .Inc", "HR");
-    employees[1]= new Employee(3215, "John", "Cook", 26, 2200, "We<3Code Ltd.", "Engeneering");
-    employees[2]= new Manager(12, 3205, "Toby", "Doe", 35, 3000, "We<3Code Ltd.", "Engeneering");
+    employees[0]= new Employee(3345, "Tim",  "Smith","279-6658-122", 35, 2500, "The Last Of Us .Inc", "HR");
+    employees[1]= new Employee(3215, "John", "Cook", "288-6098-200", 26, 2200, "We<3Code Ltd.", "Engeneering");
+    employees[2]= new Manager(12, 3205, "Toby", "Doe","779-0891-031", 35, 3000, "We<3Code Ltd.", "Engeneering");
 
 
 
      while (1)
     {
         std::cout<<"--------------------------------------- MENU --------------------------------------- \n";
-        std::cout<<"Do you wish to perform an operation? Choose a number between 0-4.\n";
+        std::cout<<"Do you wish to perform an operation? Choose a number between 0-5.\n";
         std::cout<<"1. Output data for the workers.\n";
         std::cout<<"2. Output data for one worker.\n";
         std::cout<<"3. Show year income for workers.\n";
         std::cout<<"4. Employees with income above 30K.\n";
+        std::cout<<"5. Get contact information for employees.\n";
         std::cout<<"0. Exit program.\n";
 
         std::cin>>choice;
@@ -88,6 +89,14 @@ int main()
             {
                 employees[i]->show_richest();
                 
+            }
+            break;
+        case 5:
+            for(int i=0; i<workers_count; i++)
+            {
+                std::cout<<"------------------------------------ Contact information for employees ---------------------------------------- \n";
+                employees[i]->GetContactInfo();
+                std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";                
             }
             break;
 

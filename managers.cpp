@@ -5,8 +5,8 @@ Manager::Manager()
    managing=0;
 }
 
-Manager::Manager(int people_managed, int id, std::string f_name, std::string l_name, int age, float month_sal,  std::string company_name, std::string department):
-Employee(id, f_name, l_name, age, month_sal, company_name, department)
+Manager::Manager(int people_managed, int id, std::string f_name, std::string l_name, std::string phone_num, int age, float month_sal,  std::string company_name, std::string department):
+Employee(id, f_name, l_name, phone_num, age, month_sal, company_name, department)
 {
     managing=people_managed;
 }

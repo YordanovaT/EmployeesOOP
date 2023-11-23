@@ -11,7 +11,7 @@ class Manager:public Employee{
         std::string position;
     
         Manager();
-        Manager(int people_managed, int id, std::string f_name, std::string l_name, int age, float month_sal,  std::string company_name, std::string department);
+        Manager(int people_managed, int id, std::string f_name, std::string l_name, std::string phone, int age, float month_sal,  std::string company_name, std::string department);
         void output();
         void calculate_year_income();
         void show_richest();

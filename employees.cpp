@@ -10,13 +10,15 @@ Employee::Employee()
     
 }
 
-Employee::Employee(int id, std::string f_name, std::string l_name, int age, float month_sal,  std::string company_name,  std::string department)
+Employee::Employee(int id, std::string f_name, std::string l_name, std::string phone_num, int age, float month_sal,  std::string company_name,  std::string department)
 :Company(company_name, department)
 {
     ID=id;
     first_name = f_name;
     last_name= l_name;
+    phone=phone_num;
     Age=age;
+    email=first_name + "." + last_name + "@mail.com";
     month_salary=month_sal;
 }
 float Employee::GetIncome()
@@ -24,6 +26,13 @@ float Employee::GetIncome()
     year_income=month_salary*12;
     return year_income;
 }
+
+void Employee::GetContactInfo()
+{
+    std::cout<<"Name: "<< first_name<< " "<<last_name <<std::endl;
+    std::cout<<"Email: "<<email<< "\tPhone: "<<phone<<std::endl;
+}
+
 void Employee::calculate_year_income()
 {
     float sum=0;
