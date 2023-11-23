@@ -19,11 +19,12 @@ int main()
 
      while (1)
     {
-        std::cout<<"----------------------- MENU -----------------------\n";
-        std::cout<<"Do you wish to perform an operation? Choose a number between 0-7.\n";
+        std::cout<<"--------------------------------------- MENU --------------------------------------- \n";
+        std::cout<<"Do you wish to perform an operation? Choose a number between 0-4.\n";
         std::cout<<"1. Output data for the workers.\n";
         std::cout<<"2. Output data for one worker.\n";
         std::cout<<"3. Show year income for workers.\n";
+        std::cout<<"4. Employees with income above 30K.\n";
         std::cout<<"0. Exit program.\n";
 
         std::cin>>choice;
@@ -44,9 +45,9 @@ int main()
         case 1:
             for(int i=0; i<workers_count; i++)
             {
-                std::cout<<"----------------------- Outputting Data for employees ----------------------- \n";
+                std::cout<<"--------------------------------------- Outputting Data for employees --------------------------------------- \n";
                 employees[i]->output();
-                std::cout<<"----------------------------------------------------------------------------- \n\n";
+                std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
                 
             }
             break;
@@ -60,9 +61,9 @@ int main()
             {
                 if(id == employees[i]->ID)
                 {
-                    std::cout<<"----------------------- Outputting Data for employee ----------------------- \n";
+                    std::cout<<"--------------------------------------- Outputting Data for employee ---------------------------------------\n";
                     employees[i]->output();
-                    std::cout<<"----------------------------------------------------------------------------- \n\n";
+                    std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
                     flag=1;
                 }
                     
@@ -76,12 +77,20 @@ int main()
         case 3:
             for(int i=0; i<workers_count; i++)
             {
-                std::cout<<"----------------------- Year income for employees ----------------------- \n";
+                std::cout<<"--------------------------------------- Year income for employees ------------------------------------------- \n";
                 employees[i]->calculate_year_income();
-                std::cout<<"----------------------------------------------------------------------------- \n\n";
+                std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
                 
             }
             break;
+        case 4:
+            for(int i=0; i<workers_count; i++)
+            {
+                employees[i]->show_richest();
+                
+            }
+            break;
+
         default:
             break;
         }
