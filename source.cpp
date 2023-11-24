@@ -20,12 +20,13 @@ int main()
      while (1)
     {
         std::cout<<"--------------------------------------- MENU --------------------------------------- \n";
-        std::cout<<"Do you wish to perform an operation? Choose a number between 0-5.\n";
+        std::cout<<"Do you wish to perform an operation? Choose a number between 0-6.\n";
         std::cout<<"1. Output data for the workers.\n";
         std::cout<<"2. Output data for one worker.\n";
         std::cout<<"3. Show year income for workers.\n";
         std::cout<<"4. Employees with income above 30K.\n";
         std::cout<<"5. Get contact information for employees.\n";
+        std::cout<<"6. Ask for bonus.\n";
         std::cout<<"0. Exit program.\n";
 
         std::cin>>choice;
@@ -99,7 +100,34 @@ int main()
                 std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";                
             }
             break;
+        case 6:
 
+            std::cout<<"Enter employee ID: ";
+            std::cin>>id;
+            std::cin.ignore();
+            std::cout<<"\n";
+
+            for(int i=0; i<workers_count; i++)
+            {
+                if(id == employees[i]->ID)
+                {
+                    float bonus;
+                    std::cout<<"Enter bonus amount: ";
+                    std::cin>>bonus;
+                    std::cin.ignore();
+                    std::cout<<"\n";
+
+                    std::cout<<"---------------------------------------- Ask for bonus for employee ----------------------------------------\n";
+                    employees[i]->ask_for_bonus(bonus);
+                    std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+                    flag=1;
+                }               
+            }
+            if(flag == 0)
+            {
+                std::cout<<"Found NO employee with the given ID\n";
+            }
+            break;
         default:
             break;
         }

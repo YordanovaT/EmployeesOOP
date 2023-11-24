@@ -35,10 +35,9 @@ void Employee::GetContactInfo()
 
 void Employee::calculate_year_income()
 {
-    float sum=0;
-    sum=month_salary*12;
+    float sum=GetIncome();
     year_income=sum;
-    std::cout<<"Employee ID: "<< ID<<"\tYear income: "<< year_income<<"\tDepartment: "<<comp_department<<std::endl;
+    std::cout<<"Employee ID: "<< ID<<"\tYear income: "<< year_income <<"\tDepartment: "<<comp_department<<std::endl;
 }
 
 void Employee::output()
@@ -61,4 +60,12 @@ void Employee::show_richest()
 
     }
 
+}
+
+void Employee::ask_for_bonus(float percent)
+{
+    float pay=GetIncome();
+    float bonus= pay*(1+percent);
+    year_income=bonus;
+    std::cout<<"Year income after bonus: "<<year_income<<std::endl;
 }

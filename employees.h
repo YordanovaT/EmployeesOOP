@@ -5,7 +5,11 @@
     #include <string>
     #include "company.h"
 
-    class Employee: public Company{
+    class Bonus
+    {
+        virtual void ask_for_bonus(float percent)=0; //by this the class becomes abstract class
+    };
+    class Employee: public Company, Bonus{
         public:
             int ID;
             std::string first_name;
@@ -25,7 +29,7 @@
             virtual void calculate_year_income();
             virtual void show_richest();
             void output();
-
+            void ask_for_bonus(float percent);
 
     };
 #endif
