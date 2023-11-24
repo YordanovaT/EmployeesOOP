@@ -15,5 +15,6 @@ class Manager:public Employee{
         void output();
         void calculate_year_income();
         void show_richest();
+        void ask_for_bonus(float percent);
 };
 #endif

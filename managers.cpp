@@ -40,3 +40,12 @@ void Manager::show_richest()
         return;
     }
 }
+
+void Manager::ask_for_bonus(float percent)
+{
+    float pay=GetIncome();
+    float bonus= pay*(1+percent+0.10); // managers will have bigger bonuses
+    year_income=bonus;;
+    
+    std::cout<<"Manager's Year income: "<<year_income<<std::endl;
+}
