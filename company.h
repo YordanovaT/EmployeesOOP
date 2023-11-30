@@ -14,7 +14,7 @@ class Company{
         Company(std::string name);
         ~Company();
         void add_employee(Employee *employee);
-        void delete_employee(Employee *employee);
+        void delete_employee();
         void income_of_all_empl();
         void print_richest_employees();
         void print();

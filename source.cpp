@@ -25,14 +25,15 @@ int main()
      while (1)
     {
         std::cout<<"\n--------------------------------------- MENU --------------------------------------- \n";
-        std::cout<<"Do you wish to perform an operation? Choose a number between 0-7.\n";
-        std::cout<<"1. Add employee.\n";
-        std::cout<<"2. Add manager.\n";
+        std::cout<<"Do you wish to perform an operation? Choose a number between 0-8.\n";
+        std::cout<<"1. Add an employee.\n";
+        std::cout<<"2. Add a manager.\n";
         std::cout<<"3. Print employees data.\n";
         std::cout<<"4. Show year income for workers.\n";
         std::cout<<"5. Employees with income above 30K and managers with income above 40K.\n";
         std::cout<<"6. Get contact information for employees.\n";
         std::cout<<"7. Ask for bonus.\n";
+        std::cout<<"8. Delete an employee or a manager.\n";
         std::cout<<"0. Exit program.\n";
 
         std::cin>>choice;
@@ -94,6 +95,14 @@ int main()
 
             std::cout<<"---------------------------------------- Ask for bonus for employee ----------------------------------------\n";
             comp.give_raise();
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+            
+            break;
+
+        case 8:
+
+            std::cout<<"-------------------------------------- Delete an employee or a manager --------------------------------------\n";
+            comp.delete_employee();
             std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
             
             break;

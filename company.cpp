@@ -28,7 +28,7 @@ void Company::add_employee(Employee *employee)
     employees_count++; //increment the count of employee objects;
 }
 
-void Company::delete_employee(Employee *employee)
+void Company::delete_employee()
 {
     int flag = 0;
     int id;
@@ -61,7 +61,9 @@ void Company::delete_employee(Employee *employee)
 
 void Company::print()
 {
-    std::cout<<"Company name: "<< company_name<<"\n\n";
+    std::cout<<"\t\t\t\t\tCompany name: "<< company_name<<"\n\n";
+    std::cout<<"----------------------------------------------------------------------------------------------------------------\n";
+    std::cout<<"----------------------------------------------------------------------------------------------------------------\n";
     for(int i=0; i<employees_count; i++)
     {
         empl_arr[i]->output();
@@ -73,6 +75,7 @@ void Company::income_of_all_empl()
     for(int i=0; i<employees_count; i++)
     {
         empl_arr[i]->calculate_year_income();
+        std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
     }
 }
 
@@ -119,6 +122,7 @@ void Company::contact_info()
     for(int i=0; i<employees_count; i++)
     {
         empl_arr[i]->GetContactInfo();
+        std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
     }
 }
 
