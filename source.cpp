@@ -5,28 +5,35 @@
 int main()
 {
     int choice;
-    int workers_count=3;
-    int id;
     int flag=0;
+    
+    std::string comp_name;
 
-    //create  company employees
-    Employee *employees[workers_count]; 
-    employees[0]= new Employee(3345, "Tim",  "Smith","279-6658-122", 35, 2500, "The Last Of Us .Inc", "HR");
-    employees[1]= new Employee(3215, "John", "Cook", "288-6098-200", 26, 2200, "We<3Code Ltd.", "Engeneering");
-    employees[2]= new Manager(12, 3205, "Toby", "Doe","779-0891-031", 35, 3000, "We<3Code Ltd.", "Engeneering");
+    std::cout<<"Enter company name: ";
+    std::cin>>comp_name;
+    std::cin.ignore();
+
+    //create class instances
+
+    Company comp(comp_name);
+    Employee *emp=0;
+    Manager *mg=0; 
+    
 
 
 
      while (1)
     {
-        std::cout<<"--------------------------------------- MENU --------------------------------------- \n";
-        std::cout<<"Do you wish to perform an operation? Choose a number between 0-6.\n";
-        std::cout<<"1. Output data for the workers.\n";
-        std::cout<<"2. Output data for one worker.\n";
-        std::cout<<"3. Show year income for workers.\n";
-        std::cout<<"4. Employees with income above 30K.\n";
-        std::cout<<"5. Get contact information for employees.\n";
-        std::cout<<"6. Ask for bonus.\n";
+        std::cout<<"\n--------------------------------------- MENU --------------------------------------- \n";
+        std::cout<<"Do you wish to perform an operation? Choose a number between 0-8.\n";
+        std::cout<<"1. Add an employee.\n";
+        std::cout<<"2. Add a manager.\n";
+        std::cout<<"3. Print employees data.\n";
+        std::cout<<"4. Show year income for workers.\n";
+        std::cout<<"5. Employees with income above 30K and managers with income above 40K.\n";
+        std::cout<<"6. Get contact information for employees.\n";
+        std::cout<<"7. Ask for bonus.\n";
+        std::cout<<"8. Delete an employee or a manager.\n";
         std::cout<<"0. Exit program.\n";
 
         std::cin>>choice;
@@ -34,100 +41,72 @@ int main()
 
         if(choice == 0)
         {
-            //deleting the dynamically allocated memory when instantiating employees and manager
-            for(int i=0; i<workers_count; i++)
-            {
-                delete employees[i]; 
-            }
             break;
         }
 
         switch (choice)
         {
         case 1:
-            for(int i=0; i<workers_count; i++)
-            {
-                std::cout<<"--------------------------------------- Outputting Data for employees --------------------------------------- \n";
-                employees[i]->output();
-                std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+
+            std::cout<<"--------------------------------------------- Add new employee --------------------------------------------- \n";
+            emp=new Employee();
+            comp.add_employee(emp);
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
                 
-            }
             break;
         case 2:
-            std::cout<<"Enter employee ID: ";
-            std::cin>>id;
-            std::cin.ignore();
-            std::cout<<"\n";
 
-            for(int i=0; i<workers_count; i++)
-            {
-                if(id == employees[i]->ID)
-                {
-                    std::cout<<"--------------------------------------- Outputting Data for employee ---------------------------------------\n";
-                    employees[i]->output();
-                    std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
-                    flag=1;
-                }
-                    
-            }
-            if(flag == 0)
-            {
-                std::cout<<"Found NO employee with the given ID\n";
-            }
+            std::cout<<"---------------------------------------------- Add new manager ---------------------------------------------- \n";
+            mg= new Manager();
+            comp.add_employee(mg);
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+            
             break;
-
+        
         case 3:
-            for(int i=0; i<workers_count; i++)
-            {
-                std::cout<<"--------------------------------------- Year income for employees ------------------------------------------- \n";
-                employees[i]->calculate_year_income();
-                std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+            
+            std::cout<<"--------------------------------------- Outputting Data for employees --------------------------------------- \n";
+            comp.print();
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
                 
-            }
             break;
+
         case 4:
-            for(int i=0; i<workers_count; i++)
-            {
-                employees[i]->show_richest();
-                
-            }
+
+            std::cout<<"--------------------------------------- Year income for employees ------------------------------------------- \n";
+            comp.income_of_all_empl();
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
             break;
+
         case 5:
-            for(int i=0; i<workers_count; i++)
-            {
-                std::cout<<"------------------------------------ Contact information for employees ---------------------------------------- \n";
-                employees[i]->GetContactInfo();
-                std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";                
-            }
+            comp.print_richest_employees();
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";   
             break;
+
         case 6:
 
-            std::cout<<"Enter employee ID: ";
-            std::cin>>id;
-            std::cin.ignore();
-            std::cout<<"\n";
-
-            for(int i=0; i<workers_count; i++)
-            {
-                if(id == employees[i]->ID)
-                {
-                    float bonus;
-                    std::cout<<"Enter bonus amount: ";
-                    std::cin>>bonus;
-                    std::cin.ignore();
-                    std::cout<<"\n";
-
-                    std::cout<<"---------------------------------------- Ask for bonus for employee ----------------------------------------\n";
-                    employees[i]->ask_for_bonus(bonus);
-                    std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
-                    flag=1;
-                }               
-            }
-            if(flag == 0)
-            {
-                std::cout<<"Found NO employee with the given ID\n";
-            }
+            std::cout<<"------------------------------------ Contact information for employees ---------------------------------------- \n";
+            comp.contact_info();
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";                
+            
             break;
+
+        case 7:
+
+            std::cout<<"---------------------------------------- Ask for bonus for employee ----------------------------------------\n";
+            comp.give_raise();
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+            
+            break;
+
+        case 8:
+
+            std::cout<<"-------------------------------------- Delete an employee or a manager --------------------------------------\n";
+            comp.delete_employee();
+            std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+            
+            break;
+
         default:
             break;
         }

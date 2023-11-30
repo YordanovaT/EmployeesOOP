@@ -1,38 +1,43 @@
 #include "managers.h"
 
-Manager::Manager()
+Manager::Manager():Employee()
 {
-   managing=0;
+    int people_managed;
+
+    std::cout<<"\nHow many people are managed by " <<first_name<< " " <<last_name<<"?\n";
+    std::cin>>people_managed;
+    std::cin.ignore();
+    managing=people_managed;
 }
 
-Manager::Manager(int people_managed, int id, std::string f_name, std::string l_name, std::string phone_num, int age, float month_sal,  std::string company_name, std::string department):
-Employee(id, f_name, l_name, phone_num, age, month_sal, company_name, department)
+Manager::~Manager()
 {
-    managing=people_managed;
+
 }
 
 void Manager::output()
 {
-    std::cout<<"Employee ID: "<<ID<<"\tCompany Name: " << company_name<<"\tManager of: "<<comp_department<<"\t People managed: "<<managing<<std::endl;
-    std::cout<<"Name: "<< first_name<< " "<<last_name << "\tAge: "<<Age<< "\tMonth salary: "<<month_salary<<std::endl;
+    std::cout<<"Employee ID: "<<ID<<"\tManager of: "<<department<<" Department"<<"\nPeople managed: "<<managing;
+    std::cout<<"\tName: "<< first_name<< " "<<last_name << "\tAge: "<<Age<< "\tMonth salary: "<<month_salary<<std::endl;
+    std::cout<<"----------------------------------------------------------------------------------------------------------------\n";
+    std::cout<<"----------------------------------------------------------------------------------------------------------------\n";
 }
 
 void Manager::calculate_year_income()
 {
-    float income=GetIncome();
-    std::cout<<"Employee ID: "<<ID<<"\tYear income: "<<income<<"\tManager of: "<<comp_department<<std::endl;
+
+    std::cout<<"Employee ID: "<<ID<<"\tYear income: "<<year_income<<"\tManager of: "<<department<<std::endl;
 }
 
 void Manager::show_richest()
 {
-    float max=38000; //because managers have higher month salary
-    float rich = GetIncome();
+    float max=40000; //because managers have higher month salary
     
-    if(rich>=max)
+    if(year_income>=max)
     {
-        std::cout<<"--------------------------------------- Managers with income above 38K --------------------------------------- \n";
-        std::cout<<"Employee ID: "<<ID<<"\tCompany Name: " << company_name<<std::endl;
-        std::cout<<"Name: "<< first_name<< " "<<last_name <<"\tManager of: "<<comp_department<<"\tYear income: "<<rich<<std::endl;
+        std::cout<<"--------------------------------------- Managers with income above 40K --------------------------------------- \n";
+        std::cout<<"Employee ID: "<<ID<<"\tName: "<< first_name<< " "<<last_name;
+        std::cout<<"\tManager of: "<<department<<"\tYear income: "<<year_income<<std::endl;
         std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
     }
     else
