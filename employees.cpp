@@ -53,7 +53,6 @@ Employee::Employee()
 
 float Employee::GetIncome()
 {
-    //year_income=month_salary*12;
     return year_income;
 }
 
@@ -74,6 +73,8 @@ void Employee::output()
 {
     std::cout<<"Employee ID: "<<ID<<"\tDepartment: "<<department<<std::endl;
     std::cout<<"Name: "<< first_name<< " "<<last_name << "\tAge: "<<Age<< "\nMonth salary: "<<month_salary<<std::endl;
+    std::cout<<"----------------------------------------------------------------------------------------------------------------\n";
+    std::cout<<"----------------------------------------------------------------------------------------------------------------\n";
 }
 
 void Employee::show_richest()
@@ -83,9 +84,9 @@ void Employee::show_richest()
     if(year_income>=max)
     {
         std::cout<<"--------------------------------------- Employees with income above 30K --------------------------------------- \n";
-        std::cout<<"Employee ID: "<<ID<<"Name: "<< first_name<< " "<<last_name;
+        std::cout<<"Employee ID: "<<ID<<"\tName: "<< first_name<< " "<<last_name;
         std::cout<<"\tDepartment: "<<department<<"\tYear income: "<< year_income<<std::endl;
-         std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
+        std::cout<<"------------------------------------------------------------------------------------------------------------- \n\n";
 
     }
 

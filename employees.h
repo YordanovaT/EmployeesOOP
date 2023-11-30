@@ -29,7 +29,7 @@
             void GetContactInfo();
             virtual void calculate_year_income();
             virtual void show_richest();
-            void output();
+            virtual void output();
             void ask_for_bonus(float percent);
 
     };
